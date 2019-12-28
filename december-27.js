@@ -72,3 +72,15 @@ function pigIt(str){
 }
 
 console.log(pigIt('This is A, test!'))
+
+
+function mergeArrays(a, b){
+  arr = []
+  for(let i = 0; i < Math.max(a.length, b.length); i++){
+    a[i] ? arr.push(a[i]) : null
+    b[i] ? arr.push(b[i]) : null
+  }
+  return arr
+}
+
+console.log(mergeArrays([1, 2, 3, 4, 5], ['a', 'b', 'c', 'd', 'e', 'f', 'g']))
