@@ -84,3 +84,13 @@ function mergeArrays(a, b){
 }
 
 console.log(mergeArrays([1, 2, 3, 4, 5], ['a', 'b', 'c', 'd', 'e', 'f', 'g']))
+
+
+function accum(str){
+  return str.toUpperCase()
+  .split('')
+  .map((x, y)=>x += x.toLowerCase().repeat(y))
+  .join('-')
+}
+
+console.log(accum('aBcD'))
