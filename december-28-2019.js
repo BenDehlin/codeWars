@@ -16,7 +16,7 @@ console.log(addLetters('a', 'b'))
 
 function missingValue(array){
   let arr = []
-  let test = count2(array)
+  let test = count(array)
   console.log(test)
   for(let key in test){
     if(test[key] === 1 || test[key] === 2){
