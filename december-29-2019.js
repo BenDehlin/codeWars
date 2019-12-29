@@ -85,3 +85,38 @@ function isValidWalk(directions){
   return location[0] === 0 && location[1] === 0 ? true : false
 }
 console.log(isValidWalk(['n', 's', 'w', 'e']))
+
+
+function strongestEven(n, m){
+  let arr = []
+  for(let i = n; i <= m; i++){arr.push(i)}
+  arr = returnEvens(arr)
+  arr = makeObjects(arr)
+  arr = recurseArray(arr)
+  arr = arr.sort(function(a, b){
+    return b.count - a.count
+  })
+  return arr[0].num
+}
+
+let returnEvens = arr => arr.filter(x => x % 2 === 0)
+let makeObjects = arr => arr.map(x => {
+  return {num: x, count: 0}
+  })
+let recurseArray = arr => arr.map(x => {
+  x.count = recurseEvens(x.num, x.count)
+  return x
+})
+
+let recurseEvens = (num, count = 0) => {
+  if(num % 2 === 0 && num !== 0){
+    num /= 2
+    count++
+  }
+  if(num % 2 === 0 && num !== 0){
+    count = recurseEvens(num, count)
+  }
+  return count
+}
+
+console.log(strongestEven(2, 8))
