@@ -121,6 +121,37 @@ let recurseEvens = (num, count = 0) => {
 
 console.log(strongestEven(2, 8))
 
+function strongestEven2(n, m){
+  let arr = []
+  for(let i = n; i <= m; i++){arr.push(i)}
+  arr = arr.filter(x => x % 2 === 0)
+  .map(x => {return {num: x, count: 0}})
+  arr = arr.sort(function(a, b){
+    return b.count - a.count
+  })
+  .map(x => {
+  x.count = recurseEvens2(x.num, x.count)
+  return x
+})
+  .sort(function(a, b){
+    return b.count - a.count
+  })
+  return arr[0].num
+}
+
+let recurseEvens = (num, count = 0) => {
+  if(num % 2 === 0 && num !== 0){
+    num /= 2
+    count++
+  }
+  if(num % 2 === 0 && num !== 0){
+    count = recurseEvens2(num, count)
+  }
+  return count
+}
+
+console.log(strongestEven2(2, 8))
+
 
 var countDeafRats = function(town) {
   town = town.replace(/\s/g, '')
