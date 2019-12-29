@@ -175,3 +175,20 @@ var countDeafRats = function(town) {
 }
 
 console.log(countDeafRats('P~OO~~OO~O~'))
+
+
+function stripComments(str, comment) {
+  arr = str.split('\n')
+  for(let i = 0; i < arr.length; i++){
+    for(let j = 0; j < arr[i].length; j++){
+      for(let k = 0; k < comment.length; k++){
+        if(arr[i][j] === comment[k]){
+          arr[i] = arr[i].substring(0, j-1)
+        }
+      }
+    }
+  }
+  return arr.join('\n')
+};
+
+console.log(stripComments("apples, pears # and bananas\ngrapes\nbananas !apples", ['#', '!']))
