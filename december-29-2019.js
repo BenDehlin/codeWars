@@ -120,3 +120,27 @@ let recurseEvens = (num, count = 0) => {
 }
 
 console.log(strongestEven(2, 8))
+
+
+var countDeafRats = function(town) {
+  town = town.replace(/\s/g, '')
+  let arr = town.split('P')
+  let deaf = 0
+  if(arr[0].length > 0){
+    for(let i = 0; i < arr[0].length; i+=2){
+      if(arr[0][i] === 'O' && arr[0][i+1] === '~'){
+        deaf ++
+      }
+    }
+  }
+  if(arr[1].length > 0){
+    for(let i = 0; i < arr[1].length; i+=2){
+      if(arr[1][i] === '~' && arr[1][i+1] === 'O'){
+        deaf ++
+      }
+    }
+  }
+  return deaf
+}
+
+console.log(countDeafRats('P~OO~~OO~O~'))
