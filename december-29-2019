@@ -1,0 +1,27 @@
+function evenForLoop(arr){
+  let even =[]
+  let odd = []
+  for(let i = 0; i < arr.length; i++){
+    arr[i] % 2 ? odd.push(arr[i]) : even.push(arr[i])
+  }
+  return [even, odd]
+}
+
+function evenForLoop2(arr){
+  let even = []
+  let odd = []
+  for(let x of arr){
+    x % 2 ? odd.push(x) : even.push(x)
+  }
+  return [even, odd]
+}
+
+function evenForEach(arr){
+  let even = []
+  let odd = []
+  arr.forEach(x => x % 2 ? odd.push(x) : even.push(x))
+  return [even, odd]
+}
+console.log(evenForLoop([1, 4, 3, 3, 2, 5, 2]))
+console.log(evenForLoop2([1, 4, 3, 3, 2, 5, 2]))
+console.log(evenForEach([1, 4, 3, 3, 2, 5, 2]))
