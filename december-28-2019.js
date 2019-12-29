@@ -14,6 +14,7 @@ function addLetters(...letters) {
 
 console.log(addLetters('a', 'b'))
 
+
 function missingValue(array){
   let arr = []
   let test = count(array)
@@ -31,3 +32,16 @@ let count = (arr) => arr.reduce((x, y, z) => {
   }, {})
 
 console.log(missingValue([1, 1, 1, 2, 2, 2, 3, 4, 4]))
+
+
+function expressionMatter(x, y, z){
+  return Math.max(
+    x * (y + z),
+    x * y * z,
+    x + y * z,
+    (x + y) * z,
+    x + y + z
+  )
+}
+
+expressionMatter(2, 1, 2)
