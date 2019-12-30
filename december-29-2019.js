@@ -270,3 +270,13 @@ function anagrams2(word, words){
 }
 
 console.log(anagrams2('abcd', ['dcba', 'awefwaef', 'fewfwea', 'awefawef']))
+
+
+function cleanString(s){
+  while(s.includes('#')){
+    s = s.substring(0, s.indexOf('#')-1) + s.substring(s.indexOf('#')+1)
+  }
+  return s
+}
+
+console.log(cleanString('abc#d##c'))
