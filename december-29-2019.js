@@ -203,3 +203,23 @@ function getSum(a, b){
 }
 
 console.log(getSum(3, 15))
+
+
+function humanReadable(seconds) {
+  let minutes = seconds / 60
+  let hours = Math.floor(minutes / 60)
+  minutes = Math.floor(minutes % 60)
+  seconds = seconds % 60
+  if(hours <= 9){
+    hours = "0"+hours.toString()
+  }
+  if(minutes <= 9){
+    minutes = "0"+minutes.toString()
+  }
+  if(seconds <= 9){
+    seconds = "0"+seconds.toString()
+  }
+  return `${hours}:${minutes}:${seconds}`
+}
+
+console.log(humanReadable(359999))
