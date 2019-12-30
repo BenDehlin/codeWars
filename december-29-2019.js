@@ -223,3 +223,43 @@ function humanReadable(seconds) {
 }
 
 console.log(humanReadable(359999))
+
+
+function anagrams(word, words) {
+  let test = words.filter(x => anagram(word, x))
+  return test
+}
+
+function anagram(str1, str2){
+  bool1 = true
+  bool2 = true
+  obj1 = str1.split('').map(x =>{
+    return {char: x, bool: false}})
+  obj2 = str2.split('').map(x =>{
+    return {char: x, bool: false}})
+  obj1.forEach(obj => {
+    obj2.forEach( object =>{
+      if(obj.char === object.char && obj.bool === false && object.bool === false){
+        obj.bool = true
+        object.bool = true
+      }
+    })
+  })
+  obj1.forEach(x =>{
+    if(x.bool === false){
+      bool1 = false
+    }
+  })
+  obj2.forEach(x =>{
+    if(x.bool === false){
+      bool2 = false
+    }
+  })
+  if(bool1 === true && bool2 === true){
+    return true
+  }
+  return false
+}
+
+
+console.log(anagrams('abcd', ['dcba', 'awefwaef', 'fewfwea', 'awefawef']))
