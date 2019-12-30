@@ -263,3 +263,10 @@ function anagram(str1, str2){
 
 
 console.log(anagrams('abcd', ['dcba', 'awefwaef', 'fewfwea', 'awefawef']))
+
+
+function anagrams2(word, words){
+  return words.filter(x => x.split('').sort().join('') === word.split('').sort().join(''))
+}
+
+console.log(anagrams2('abcd', ['dcba', 'awefwaef', 'fewfwea', 'awefawef']))
