@@ -192,3 +192,14 @@ function stripComments(str, comment) {
 };
 
 console.log(stripComments("apples, pears # and bananas\ngrapes\nbananas !apples", ['#', '!']))
+
+
+function getSum(a, b){
+  sum = 0
+  for(let i = Math.min(a, b); i <= Math.max(a, b); i++){
+    sum += i
+  }
+  return sum
+}
+
+console.log(getSum(3, 15))
