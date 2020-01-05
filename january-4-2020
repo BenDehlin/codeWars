@@ -1,0 +1,53 @@
+function isIntArray(arr) {
+  bool = true
+  if(arr === null || arr === undefined){
+  return false
+  }
+
+  if(Array.isArray(arr)){
+    if(arr.length === 0){
+      return true
+    }
+    arr.forEach(x =>{
+      if(!Number.isInteger(x)){
+        bool = false
+      }
+    })
+  } else{
+    return false
+  }
+    return bool;
+}
+
+isIntArray([1, 2, 3, NaN])
+
+function isIntArray2(arr){
+  return Array.isArray(arr) && arr.every(x => Math.floor(x) === x)
+}
+
+isIntArray2([1, 2, 3, 4])
+
+function findLongest(str) {
+  
+  var spl = str.split(" ")
+  var longest = 0
+  
+  for (var i = 0; i < spl.length; i++) {
+    if (spl[i].length > longest) {
+      longest = spl[i].length
+      }
+    }
+    return longest
+}
+
+findLongest('this is a test')
+
+function digital_root(num){
+  let sum = num.toString().split('').map(x =>Number(x)).reduce((acc, curr) => acc + curr)
+  if(sum > 9){
+    sum = digital_root(sum)
+  }
+  return sum
+}
+
+digital_root(17886723)
